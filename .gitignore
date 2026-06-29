@@ -1,0 +1,5 @@
+# This is a meta-folder. Don't put code here.
+# Product repos live in sibling folders.
+.DS_Store
+*.swp
+*.tmp
