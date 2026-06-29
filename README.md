@@ -7,12 +7,14 @@
 
 ## 🚀 Products (sibling folders)
 
-| Folder | Product | Type | Stack | Status | Owner |
-|---|---|---|---|---|---|
-| [`jito-cli/`](./jito-cli/) | **jito ⚡** — Multi-mode AI agent CLI | CLI tool (binary) | Go 1.22, cobra, Bubble Tea | ✅ v0.2.0 shipped | OpenUppu-BE |
-| [`jito-ide/`](./jito-ide/) | **jito-ide ⚡🖥️** — VS Code extension | Editor extension | TypeScript, React, Node 20 | 🟡 v0.1.0 MVP (kickoff 2026-06-29) | jito-ide |
-| [`omyxia/`](./omyxia/) | **omyxia 🏢** — Enterprise IT Master Blueprint | Multi-tenant SaaS | NestJS, Prisma, Next.js, RLS | ✅ v1.0.0 Production Hardened | OpenUppu-FE/BE |
-| [`qualabinance/`](./qualabinance/) | **Qualabinance 📊** — Multi-asset Quant Finance | Quant platform | Python, uv, Minimax-M3 | 🟡 v0.1.0 bootstrap | QuantResearcher |
+| Folder | Product | Type | Stack | Status | GitHub | Owner |
+|---|---|---|---|---|---|---|
+| [`jito-cli/`](./jito-cli/) | **jito ⚡** — Multi-mode AI agent CLI | CLI tool (binary) | Go 1.22, cobra, Bubble Tea | ✅ v0.2.0 shipped | [open-uppu/jito](https://github.com/open-uppu/jito) | OpenUppu-BE |
+| [`jito-ide/`](./jito-ide/) | **jito-ide ⚡🖥️** — VS Code extension | Editor extension | TypeScript, React, Node 20 | 🟡 v0.1.0 MVP (kickoff 2026-06-29) | [open-uppu/jito-ide](https://github.com/open-uppu/jito-ide) | jito-ide |
+| [`omyxia/`](./omyxia/) | **omyxia 🏢** — Enterprise IT Master Blueprint | Multi-tenant SaaS | NestJS, Prisma, Next.js, RLS | ✅ v1.0.0 Production Hardened | [open-uppu/Omyxia](https://github.com/open-uppu/Omyxia) | OpenUppu-FE/BE |
+| [`qualabinance/`](./qualabinance/) | **Qualabinance 📊** — Multi-asset Quant Finance | Quant platform | Python, uv, Minimax-M3 | 🟡 v0.1.0 bootstrap | [open-uppu/qualabinance](https://github.com/open-uppu/qualabinance) | QuantResearcher |
+
+**Meta-repo:** [open-uppu/open-uppu](https://github.com/open-uppu/open-uppu) (this folder, indexes only)
 
 > **Why sibling folders (not flat under `wokrspace/`):** CEO mandate 2026-06-29 17:16 — keep `open-uppu/` as the umbrella folder for all open-uppu products, but isolate each one as a sibling. After the 2026-06-27 17:08 incident where `rm -rf open-uppu/` wiped both source and nested target. Sibling folders under `open-uppu/` give us isolation without losing the workspace grouping.
 
