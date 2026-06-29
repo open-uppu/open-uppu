@@ -1,5 +1,11 @@
 # This is a meta-folder. Don't put code here.
-# Product repos live in sibling folders.
+# Product repos live in sibling folders. They have their own .git/ — we don't track them here.
 .DS_Store
 *.swp
 *.tmp
+
+# Product folders (each is its own git repo)
+jito-cli/
+jito-ide/
+omyxia/
+qualabinance/
