@@ -1,7 +1,7 @@
 # open-uppu 🏢
 
 > **Multi-product software house workspace.**
-> Each product lives in its own sibling folder for git isolation, safe backups, and clean separation of concerns.
+> Each product is its own sibling folder under `open-uppu/` — git isolation, safe backups, clean separation.
 
 ---
 
@@ -10,11 +10,11 @@
 | Folder | Product | Type | Stack | Status | Owner |
 |---|---|---|---|---|---|
 | [`jito-cli/`](./jito-cli/) | **jito ⚡** — Multi-mode AI agent CLI | CLI tool (binary) | Go 1.22, cobra, Bubble Tea | ✅ v0.2.0 shipped | OpenUppu-BE |
-| [`open-uppu-jito-ide/`](./open-uppu-jito-ide/) | **jito-ide ⚡🖥️** — VS Code extension | Editor extension | TypeScript, React, Node 20 | 🟡 v0.1.0 MVP (kickoff 2026-06-29) | jito-ide |
-| [`open-uppu-omyxia/`](./open-uppu-omyxia/) | **omyxia 🏢** — Enterprise IT Master Blueprint | Multi-tenant SaaS | NestJS, Prisma, Next.js, RLS | ✅ v1.0.0 Production Hardened | OpenUppu-FE/BE |
-| [`open-uppu-qualabinance/`](./open-uppu-qualabinance/) | **Qualabinance 📊** — Multi-asset Quant Finance | Quant platform | Python, uv, Minimax-M3 | 🟡 v0.1.0 bootstrap | QuantResearcher |
+| [`jito-ide/`](./jito-ide/) | **jito-ide ⚡🖥️** — VS Code extension | Editor extension | TypeScript, React, Node 20 | 🟡 v0.1.0 MVP (kickoff 2026-06-29) | jito-ide |
+| [`omyxia/`](./omyxia/) | **omyxia 🏢** — Enterprise IT Master Blueprint | Multi-tenant SaaS | NestJS, Prisma, Next.js, RLS | ✅ v1.0.0 Production Hardened | OpenUppu-FE/BE |
+| [`qualabinance/`](./qualabinance/) | **Qualabinance 📊** — Multi-asset Quant Finance | Quant platform | Python, uv, Minimax-M3 | 🟡 v0.1.0 bootstrap | QuantResearcher |
 
-> **Why sibling folders, not nested:** CEO mandate 2026-06-29 17:00 — each product = isolated git repo, no cross-contamination, no accidental `rm -rf` of siblings. After the 2026-06-27 17:08 incident where `rm -rf open-uppu/` wiped both source and nested target.
+> **Why sibling folders (not flat under `wokrspace/`):** CEO mandate 2026-06-29 17:16 — keep `open-uppu/` as the umbrella folder for all open-uppu products, but isolate each one as a sibling. After the 2026-06-27 17:08 incident where `rm -rf open-uppu/` wiped both source and nested target. Sibling folders under `open-uppu/` give us isolation without losing the workspace grouping.
 
 ---
 
@@ -25,8 +25,8 @@
 | OpenUppu-BE | jito-cli (Go core) | codex, agy, jules |
 | OpenUppu-FE | omyxia frontend | codex, agy, kilo |
 | OpenUppu-BE | omyxia backend | codex, agy, jules |
-| **jito-ide** | open-uppu-jito-ide (TS extension) | codex, agy, kilo, vsce |
-| QuantResearcher | open-uppu-qualabinance | codex, agy, kilo, uv, python |
+| **jito-ide** | jito-ide (TS extension) | codex, agy, kilo, vsce |
+| QuantResearcher | qualabinance | codex, agy, kilo, uv, python |
 
 ---
 
@@ -40,11 +40,11 @@
 
 ## 🛡️ Hard rules
 
-1. **One product = one folder.** Never nest a product inside another.
+1. **One product = one sibling folder.** Never nest a product inside another product's repo.
 2. **No cross-product imports** without explicit CEO approval.
 3. **Each product has its own git remote** (when going public).
 4. **Backup each product independently** (no shared snapshot that mixes unrelated code).
-5. **`open-uppu/` = meta only.** Don't put source code here. If you need a new product, create a sibling folder.
+5. **`open-uppu/` = umbrella + meta only.** Don't put product code at the root. If you need a new product, create a sibling folder under `open-uppu/`.
 6. **Renames go through PM** with `cp -a` + verify + `rm` pattern. Never direct `mv` of folders with uncommitted work.
 
 ---
@@ -52,25 +52,25 @@
 ## 🔄 Conventions
 
 ```
-~/wokrspace/open-uppu/         ← this folder (workspace meta)
-~/wokrspace/jito-cli/          ← product 1 (Go CLI)
-~/wokrspace/open-uppu-jito-ide/ ← product 2 (VS Code ext)
-~/wokrspace/open-uppu-omyxia/  ← product 3 (SaaS)
-~/wokrspace/open-uppu-qualabinance/ ← product 4 (Quant)
+~/wokrspace/open-uppu/          ← this folder (workspace umbrella)
+├── .git/                       (workspace-level meta repo)
+├── README.md                   (this file)
+├── jito-cli/                   ← product 1 (Go CLI)
+├── jito-ide/                   ← product 2 (VS Code ext)
+├── omyxia/                     ← product 3 (SaaS)
+└── qualabinance/               ← product 4 (Quant)
 ```
 
-Naming pattern:
-- `open-uppu-<product>` for products with public/open-source ambitions
-- Bare name (`jito-cli`) for products that ship as their own brand
+Naming pattern: short, memorable, brand-friendly names. No `open-uppu-` prefix needed since they already live under the `open-uppu/` umbrella.
 
 ---
 
 ## 🚀 Add a new product
 
 ```bash
-# 1. Create sibling folder
-cd ~/wokrspace/
-mkdir open-uppu-<name> && cd open-uppu-<name>
+# 1. Create sibling folder under open-uppu/
+cd ~/wokrspace/open-uppu/
+mkdir <name> && cd <name>
 
 # 2. Init git
 git init
@@ -92,4 +92,5 @@ git init
 
 **Owner:** CEO-Profile (Loop Engineering Layer)
 **Migration history:**
-- 2026-06-29 17:00 — Migrated from nested `open-uppu/{jito,jito-ide,omyxia,qualabinance}` to sibling folders. Backup at `~/.openclaw/backups/open-uppu-migration-20260629-1701/`.
+- 2026-06-29 17:00 — First migration: nested `open-uppu/{jito,jito-ide,omyxia,qualabinance}` → sibling at `wokrspace/` root.
+- 2026-06-29 17:16 — Re-migration (CEO pivot): back to `open-uppu/` umbrella with sibling subfolders (`open-uppu/{jito-cli,jito-ide,omyxia,qualabinance}`). Each product keeps its own git repo for isolation. Backups at `~/.openclaw/backups/open-uppu-migration-20260629-1701/` (398M) and `~/.openclaw/backups/open-uppu-remigration-*/` (398M).
