@@ -7,5 +7,13 @@
 # Product folders (each is its own git repo)
 jito-cli/
 jito-ide/
+jito
 omyxia/
 qualabinance/
+llm-gateway/
+plugins/
+trader/
+qualabinance
+
+# Agent operational directories
+agent-*
